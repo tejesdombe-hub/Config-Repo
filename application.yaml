@@ -1,37 +1,21 @@
 server:
-  port: 9090
+  port: 8082
 
 spring:
   application:
-    name: GATEWAY
+    name: OrderService
 
-  cloud:
-    gateway:
-      server:
-        webflux:
-          routes:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_db
+    username: root
+    password: Admin@123
 
-            - id: product-service
-              uri: lb://PRODUCT-SERVICE
-              predicates:
-                - Path=/products/**
-
-            - id: order-service
-              uri: lb://ORDER-SERVICE
-              predicates:
-                - Path=/orders/**
-
-            - id: user-service
-              uri: lb://USER-SERVICE
-              predicates:
-                - Path=/users/**
-
-            - id: notification-service
-              uri: lb://NOTIFICATION-SERVICE
-              predicates:
-                - Path=/notifications/**
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka
