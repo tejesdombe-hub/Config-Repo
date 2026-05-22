@@ -6,7 +6,7 @@ spring:
     name: PRODUCT-SERVICE
 
   datasource:
-    url: jdbc:mysql://localhost:3306/product_db
+    url: jdbc:mysql://host.docker.internal:3306/product_db
     username: root
     password: Admin@123
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,6 +22,6 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 
 eureka:
-    client:
-      service-url:
-        defaultZone: http://eureka-server:8761/eureka
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
