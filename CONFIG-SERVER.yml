@@ -1,15 +1,16 @@
 server:
-  port: 8888
-
+   port: 8888
 spring:
-  application:
-    name: config-server
+   application:
+     name: ConfigServer
 
   cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/YOUR_USERNAME/config-repo
+     config:
+       server:
+         git:
+           uri: https://github.com/tejesdombe-hub/Config-Repo
+
+
           clone-on-start: true
 
 eureka:
